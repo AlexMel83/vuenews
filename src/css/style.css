@@ -1,4 +1,4 @@
-.header{
+.header {
     height: 50px;
     align-items: center;
     background-color: var(--bs-primary);
@@ -6,17 +6,20 @@
     justify-content: space-between;
     padding: 15px;
 }
-.header h1{
+
+.header h1 {
     color: var(--bs-dark);
     text-align: center;
 }
-.header form{
+
+.header form {
     width: auto;
     min-width: 50%;
 }
+
 @media (max-width:767px) {
-    .header h1{
+    .header h1 {
         font-size: 20px;
     }
-    
+
 }

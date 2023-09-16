@@ -1,15 +1,12 @@
 <template>
     <div class="header d-flex w-100">
         <h1>Vue-News by SIS</h1>
-        <form @submit="subMetod">
+        <form @submit="getNews">
 
             <input class="form-control" type="text" placeholder="Search for..." v-model="value">
 
 
         </form>
-        <div>
-            {{ data }}
-        </div>
     </div>
 </template>
 
@@ -20,19 +17,16 @@ export default {
     name: 'SearchComponent',
     data() {
         return {
-           
+
             value: null,
-            data: null
+            databox: null
         }
 
     },
     methods: {
-        subMetod(event) {
-            event.preventDefault()
-            this.getNews()
 
-        },
-        getNews() {
+        async getNews(event) {
+            event.preventDefault()
             var url = 'https://newsapi.org/v2/everything?' +
                 `q=${this.value}&` +
                 'from=2023-09-12&' +
@@ -41,13 +35,16 @@ export default {
 
             var req = new Request(url);
 
-            fetch(req, { method: 'GET' })
-                .then(function (response) {
-                    response.json()
-                        .then((data) => { console.log(data.articles.slice(0, 10)) })
-                        ;
+            const response = await fetch(req, { method: 'GET' })
 
+            return await response.json()
+                .then((dat) => {
+                    this.databox = dat.articles.slice(0, 10)
+                    console.log(this.databox[0].description)
                 })
+                ;
+
+
         }
     }
 }
