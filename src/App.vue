@@ -1,28 +1,40 @@
+<style>
+@import '../src/css/style.css';
+</style>
 <template>
+    <SearchField />
     <Carousel />
-    <News />
+    <Gallery :articles="articles" />
 </template>
 
 <script>
 import Carousel from './components/Carousel.vue';
-import News from './components/News.vue';
+import { getTopHeadlines } from './utils/getTopHeadlines';
+import Gallery from './components/Gallery.vue';
 
+import SearchField from './components/SearchField.vue';
 export default {
     name: 'App',
     components: {
-        News,
+        SearchField,
+        Gallery,
         Carousel
-    }
-}
-</script>
+    },
+    data() {
+        return {
+            tables: null,
+            articles: [],
+        };
+    },
+    methods: {
+        returner(value) {
+            this.tables = value;
+        },
+    },
 
-<style>
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-</style>
+    async mounted() {
+        const res = await getTopHeadlines();
+        this.articles = res.data.articles;
+    },
+};
+</script>
