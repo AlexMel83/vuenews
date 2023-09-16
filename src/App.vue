@@ -2,36 +2,44 @@
 @import '../src/css/style.css';
 </style>
 <template>
-    <SearchField v-on:send="transferData"/>
-    <News :myData="this.DATA"/>
+    <SearchField v-on:send="transferData" />
+    <Carousel />
+    <Gallery :articles="articles" />
 </template>
 
 <script>
-import News from './components/News.vue';
+import Carousel from './components/Carousel.vue';
+import { getTopHeadlines } from './utils/getTopHeadlines';
+import Gallery from './components/Gallery.vue';
 
-import SearchField from './components/SearchField.vue'
+import SearchField from './components/SearchField.vue';
 export default {
     name: 'App',
     components: {
         SearchField,
-        News
+        Gallery,
+        Carousel
     },
     data() {
         return {
             tables: null,
-            DATA:null
-        }
+            DATA: null,
+            articles: [],
+        };
     },
     methods: {
         returner(value) {
             this.tables = value
         },
-        transferData(dat){
-            this.DATA = dat
-           
-        }
-        
-    }
-}
-</script>
+        transferData(dat) {
+            this.articles = dat
 
+        }
+    },
+
+    async mounted() {
+        const res = await getTopHeadlines();
+        this.articles = res.data.articles;
+    },
+};
+</script>
