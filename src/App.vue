@@ -1,18 +1,13 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-  <button type="button" class="btn btn-danger">Danger</button>
   <News />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import News from './components/News.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     News
   }
 }
