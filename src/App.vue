@@ -1,25 +1,32 @@
+<style>
+@import '../src/css/style.css';
+</style>
 <template>
+    <SearchField />
     <News />
 </template>
 
 <script>
 import News from './components/News.vue';
 
+import SearchField from './components/SearchField.vue'
 export default {
     name: 'App',
     components: {
+        SearchField,
         News
+    },
+    data() {
+        return {
+            tables: null
+        }
+    },
+    methods: {
+        returner(value) {
+            this.tables = value
+        }
+        
     }
 }
 </script>
 
-<style>
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-</style>
