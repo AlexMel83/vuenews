@@ -1,14 +1,17 @@
 <template>
+    <Carousel />
     <News />
 </template>
 
 <script>
+import Carousel from './components/Carousel.vue';
 import News from './components/News.vue';
 
 export default {
     name: 'App',
     components: {
-        News
+        News,
+        Carousel
     }
 }
 </script>
