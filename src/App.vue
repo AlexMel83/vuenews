@@ -3,30 +3,38 @@
 </style>
 <template>
     <SearchField />
-    <News />
+    <Carousel />
+    <Gallery :articles="articles" />
 </template>
 
 <script>
-import News from './components/News.vue';
+import Carousel from './components/Carousel.vue';
+import { getTopHeadlines } from './utils/getTopHeadlines';
+import Gallery from './components/Gallery.vue';
 
-import SearchField from './components/SearchField.vue'
+import SearchField from './components/SearchField.vue';
 export default {
     name: 'App',
     components: {
         SearchField,
-        News
+        Gallery,
+        Carousel
     },
     data() {
         return {
-            tables: null
-        }
+            tables: null,
+            articles: [],
+        };
     },
     methods: {
         returner(value) {
-            this.tables = value
-        }
-        
-    }
-}
-</script>
+            this.tables = value;
+        },
+    },
 
+    async mounted() {
+        const res = await getTopHeadlines();
+        this.articles = res.data.articles;
+    },
+};
+</script>
