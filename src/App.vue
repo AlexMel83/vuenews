@@ -2,8 +2,8 @@
 @import '../src/css/style.css';
 </style>
 <template>
-    <SearchField />
-    <News />
+    <SearchField v-on:send="transferData"/>
+    <News :myData="this.DATA"/>
 </template>
 
 <script>
@@ -18,12 +18,17 @@ export default {
     },
     data() {
         return {
-            tables: null
+            tables: null,
+            DATA:null
         }
     },
     methods: {
         returner(value) {
             this.tables = value
+        },
+        transferData(dat){
+            this.DATA = dat
+           
         }
         
     }
