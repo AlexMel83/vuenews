@@ -3,16 +3,22 @@
 </style>
 <template>
     <SearchField />
-    <div @send="returner">{{ tables }}</div>
+    <News />
+</template>
+
+
+    
 </template>
 
 <script>
+import News from './components/News.vue';
 
 import SearchField from './components/SearchField.vue'
 export default {
     name: 'App',
     components: {
-        SearchField
+        SearchField,
+        News
     },
     data() {
         return {
@@ -23,6 +29,7 @@ export default {
         returner(value) {
             this.tables = value
         }
+        
     }
 }
 </script>
