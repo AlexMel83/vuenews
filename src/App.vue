@@ -42,7 +42,7 @@ export default {
 
     async mounted() {
         const res = await getTopHeadlines();
-        this.articles = res.data.data;
+        this.articles = res.data.articles;
     }
 };
 </script>

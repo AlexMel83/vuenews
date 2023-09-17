@@ -1,7 +1,7 @@
 <template>
     <div class="container gallery">
-        <template v-for="article in articles" :key="article.published_at">
-            <News :article='article' v-if="article.image" />
+        <template v-for="article in galleryArticles" :key="article.publishedAt">
+            <News :article='article' v-if="article.urlToImage" />
         </template>
     </div>
 
