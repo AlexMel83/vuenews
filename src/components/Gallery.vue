@@ -1,6 +1,6 @@
 <template>
     <div class="container gallery">
-        <template v-for="article in articles" :key="article.publishedAt">
+        <template v-for="article in articles" :key="article.published_at">
             <News :article='article' />
         </template>
     </div>
@@ -36,4 +36,5 @@ export default {
     @media screen and (min-width: 1100px) {
         grid-template-columns: repeat(4, 1fr);
     }
-}</style>
+}
+</style>
