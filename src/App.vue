@@ -3,7 +3,7 @@
 </style>
 <template>
     <SearchField v-on:send="transferData" />
-    <Carousel />
+    <Carousel :articles="articles" />
     <Gallery :articles="articles" />
     <Footer />
 </template>
