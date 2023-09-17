@@ -192,7 +192,6 @@ export default {
 
 .carousel-inner h5,
 .carousel-inner p,
-.carousel-control-next-icon,
 .carousel-indicators {
     background: radial-gradient(circle,
             rgba(0, 0, 0, 1) 0%,

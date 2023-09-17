@@ -1,17 +1,15 @@
 <template>
-    <div  class="container">
-    <div class="gallery">
-        <template v-for="article in galleryArticles" :key="article.publishedAt">
+    <div class="container gallery">
+        <template v-for="article in articles" :key="article.published_at">
             <News :article='article' />
         </template>
-       
+
     </div>
     <div class="button-set">
-   <button @click="prevPage" :disabled="page===1" class="btn btn-success">Previous</button>
-   <button @click="nextPage" :disabled="page===4" class="btn btn-success">Next</button>
-</div>
-</div>
-</template>
+        <button @click="prevPage" :disabled="page === 1" class="btn btn-success">Previous</button>
+        <button @click="nextPage" :disabled="page === 4" class="btn btn-success">Next</button>
+    </div>
+</div></template>
 
 <script>
 import { getTopHeadlines } from '@/utils/getTopHeadlines';
@@ -31,13 +29,13 @@ export default {
         }
     },
     methods: {
-        prevPage(){
+        prevPage() {
             this.page--
-            window.scrollTo(0,0)
+            window.scrollTo(0, 0)
         },
-        nextPage(){
+        nextPage() {
             this.page++
-            window.scrollTo(0,0)
+            window.scrollTo(0, 0)
         }
     },
     async updated() {
@@ -66,9 +64,11 @@ export default {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
 .button-set {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-    }</style>
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+</style>
