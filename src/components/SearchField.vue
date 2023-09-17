@@ -39,8 +39,9 @@ export default {
 
             return await response.json()
                 .then((dat) => {
-                    this.databox = dat.articles.slice(0, 10)
-                    console.log(this.databox[0].description)
+                    this.databox = dat.articles
+                    console.log(this.databox)
+                    this.$emit('send', dat)
                 })
                 ;
 

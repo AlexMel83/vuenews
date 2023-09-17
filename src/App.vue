@@ -2,7 +2,7 @@
 @import '../src/css/style.css';
 </style>
 <template>
-    <SearchField />
+    <SearchField v-on:send="transferData" />
     <Carousel />
     <Gallery :articles="articles" />
 </template>
@@ -23,18 +23,23 @@ export default {
     data() {
         return {
             tables: null,
+            DATA: null,
             articles: [],
         };
     },
     methods: {
         returner(value) {
-            this.tables = value;
+            this.tables = value
         },
+        transferData(dat) {
+            this.articles = dat.articles.slice(0, 10)
+
+        }
     },
 
     async mounted() {
         const res = await getTopHeadlines();
         this.articles = res.data.articles;
-    },
+    }
 };
 </script>

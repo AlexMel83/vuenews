@@ -34,7 +34,8 @@ export default {
             this.descVisible = !this.descVisible;
             this.contentVisible = !this.contentVisible;
             this.moreless == 'more' ? this.moreless = 'less' : this.moreless = 'more';
-        }
+        },
+
     }
 }
 </script>
