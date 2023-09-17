@@ -1,6 +1,6 @@
 <template>
-    <div class="header d-flex w-100">
-        <h1>Vue-News by SIS</h1>
+    <div class="header d-flex w-100 bg-success">
+        <h1 class="text-white">Vue-News by SIS-Team</h1>
         <form @submit="getNews">
 
             <input class="form-control" type="text" placeholder="Search for..." v-model="value">
@@ -50,3 +50,5 @@ export default {
     }
 }
 </script>
+
+<style></style>

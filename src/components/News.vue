@@ -1,6 +1,6 @@
 <template>
     <div class="card mb-3">
-        <img :src="article.urlToImage" class="card-img-top" alt="...">
+        <img :src="article.urlToImage" class="card-img-top" alt="">
         <div class="card-body">
             <h5 class="card-title">{{ article.title }}</h5>
             <p class="card-text" v-if="descVisible">{{ article.description }}</p>

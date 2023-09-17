@@ -184,6 +184,18 @@ export default {
 
 <style>
 .carousel-inner {
-    max-height: 610px;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.carousel-inner h5,
+.carousel-inner p,
+.carousel-control-next-icon,
+.carousel-indicators {
+    background: radial-gradient(circle,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 80%);
 }
 </style>

@@ -5,6 +5,7 @@
     <SearchField v-on:send="transferData" />
     <Carousel />
     <Gallery :articles="articles" />
+    <Footer />
 </template>
 
 <script>
@@ -13,12 +14,14 @@ import { getTopHeadlines } from './utils/getTopHeadlines';
 import Gallery from './components/Gallery.vue';
 
 import SearchField from './components/SearchField.vue';
+import Footer from './components/Footer.vue';
 export default {
     name: 'App',
     components: {
         SearchField,
         Gallery,
-        Carousel
+        Carousel,
+        Footer
     },
     data() {
         return {
