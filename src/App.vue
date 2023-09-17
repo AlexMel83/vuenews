@@ -2,10 +2,11 @@
 @import '../src/css/style.css';
 </style>
 <template>
-    <SearchField v-on:send="transferData" />
-    <Carousel :articles="articles" />
-    <Gallery :articles="articles" />
-    <Footer />
+  <SearchField v-on:send="transferData" />
+  <Carousel :articles="articles" />
+  <CategoryTabs v-on:currentCategory="setCurrentCategory" />
+  <Gallery :articles="articles" v-on:currentPage='setCurrentPage' />
+  <Footer />
 </template>
 
 <script>
@@ -15,34 +16,49 @@ import Gallery from './components/Gallery.vue';
 
 import SearchField from './components/SearchField.vue';
 import Footer from './components/Footer.vue';
+import CategoryTabs from './components/CategoryTabs.vue';
 export default {
-    name: 'App',
-    components: {
-        SearchField,
-        Gallery,
-        Carousel,
-        Footer
+  name: 'App',
+  components: {
+    SearchField,
+    Gallery,
+    Carousel,
+    Footer,
+    CategoryTabs,
+  },
+  data() {
+    return {
+      tables: null,
+      DATA: null,
+      articles: [],
+      currentCategory: '',
+      currentPage: 1
+    };
+  },
+  methods: {
+    returner(value) {
+      this.tables = value;
     },
-    data() {
-        return {
-            tables: null,
-            DATA: null,
-            articles: [],
-        };
+    transferData(dat) {
+      this.articles = dat.articles.slice(0, 10);
     },
-    methods: {
-        returner(value) {
-            this.tables = value
-        },
-        transferData(dat) {
-            this.articles = dat.articles.slice(0, 10)
+    setCurrentCategory(currentCategory) {
+      this.currentCategory = currentCategory;
+      this.hydrateData()
+    },
+    setCurrentPage(currentPage) {
+      this.currentPage = currentPage;
+      this.hydrateData()
+    },
+    async hydrateData() {
+        const res = await getTopHeadlines(this.currentCategory, this.currentPage);
+      this.articles = res.data.articles;
+    },
+  },
 
-        }
-    },
-
-    async mounted() {
-        const res = await getTopHeadlines();
-        this.articles = res.data.articles;
-    }
+mounted() {
+    this.currentCategory = 'general';
+   this.hydrateData()
+  },
 };
 </script>
