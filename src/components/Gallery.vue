@@ -3,13 +3,13 @@
         <template v-for="article in articles" :key="article.published_at">
             <News :article='article' />
         </template>
-
     </div>
+
     <div class="button-set">
         <button @click="prevPage" :disabled="page === 1" class="btn btn-success">Previous</button>
         <button @click="nextPage" :disabled="page === 4" class="btn btn-success">Next</button>
     </div>
-</div></template>
+</template>
 
 <script>
 import { getTopHeadlines } from '@/utils/getTopHeadlines';
