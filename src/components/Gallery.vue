@@ -1,6 +1,6 @@
 <template>
     <div class="container gallery">
-        <template v-for="article in galleryArticles" :key="article.publishedAt">
+        <template v-for="article in articles" :key="article.publishedAt">
             <News :article='article' v-if="article.urlToImage" />
         </template>
     </div>
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { getTopHeadlines } from '@/utils/getTopHeadlines';
 import News from './News.vue'
 export default {
     name: 'Gallery',
@@ -25,23 +24,21 @@ export default {
     data() {
         return {
             page: 1,
-            galleryArticles: []
         }
     },
+    emits:['currentPage'],
     methods: {
         prevPage() {
             this.page--
             window.scrollTo(0, 0)
+            this.$emit('currentPage', this.page)
         },
         nextPage() {
             this.page++
             window.scrollTo(0, 0)
+            this.$emit('currentPage', this.page)
         }
     },
-    async updated() {
-        const res = await getTopHeadlines(this.page)
-        this.galleryArticles = res.data.articles
-    }
 
 }
 </script>
