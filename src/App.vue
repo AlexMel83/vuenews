@@ -32,7 +32,7 @@ export default {
             this.tables = value
         },
         transferData(dat) {
-            this.articles = dat
+            this.articles = dat.articles.slice(0, 10)
 
         }
     },
@@ -40,6 +40,6 @@ export default {
     async mounted() {
         const res = await getTopHeadlines();
         this.articles = res.data.articles;
-    },
+    }
 };
 </script>

@@ -35,10 +35,7 @@ export default {
             this.contentVisible = !this.contentVisible;
             this.moreless == 'more' ? this.moreless = 'less' : this.moreless = 'more';
         },
-       
-    },
-    updated(){
-        this.newsArray = this.myData.articles.slice(0,10)
+
     }
 }
 </script>

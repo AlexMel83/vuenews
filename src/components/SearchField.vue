@@ -41,7 +41,7 @@ export default {
                 .then((dat) => {
                     this.databox = dat.articles
                     console.log(this.databox)
-                    this.$emit('send',dat)
+                    this.$emit('send', dat)
                 })
                 ;
 
