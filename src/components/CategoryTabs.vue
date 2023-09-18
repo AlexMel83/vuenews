@@ -57,6 +57,7 @@ export default {
   color: rgb(25, 135, 84);
   font-weight: 500;
   transition: all 0.3s ease-in-out;
+
   &:hover,
   &:focus,
   &.active {
@@ -64,6 +65,7 @@ export default {
     color: white;
   }
 }
+
 .tab-gallery {
   display: flex;
   flex-wrap: wrap;

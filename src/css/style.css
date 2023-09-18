@@ -5,6 +5,7 @@
     width: 100%;
     justify-content: space-between;
     padding: 15px;
+
 }
 
 .header h1 {
@@ -17,9 +18,46 @@
     min-width: 50%;
 }
 
+.card .badge {
+    width: 80px;
+    background-color: white !important;
+    color: #198754;
+    border: 1px solid #198754;
+    border-radius: 20px;
+    background: transparent;
+    font-size: 12px;
+    
+}
+.my-card{
+    background-color:aliceblue!important;
+    border: 0!important;
+    box-shadow: 4px 4px 7px 5px rgba(0, 0, 0, 0.1);
+}
+.card .link{
+    justify-self: flex-end;
+}
+.card img {
+    border-radius: 10px;
+    height: 150px;
+    object-fit: cover;
+}
+.card .card-body {
+    height: auto;
+    justify-content: space-between;
+}
 @media (max-width:767px) {
     .header h1 {
         font-size: 20px;
     }
 
+}
+.card .time {
+    font-size: 12px;
+}
+@media (min-width:768px) {
+
+
+    .card .card-title {
+        font-size: 18px;
+    }
 }

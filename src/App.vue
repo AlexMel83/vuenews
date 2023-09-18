@@ -40,7 +40,7 @@ export default {
       this.tables = value;
     },
     transferData(dat) {
-      this.articles = dat.articles.slice(0, 10);
+      this.articles = dat.articles;
     },
     setCurrentCategory(currentCategory) {
       this.currentCategory = currentCategory;

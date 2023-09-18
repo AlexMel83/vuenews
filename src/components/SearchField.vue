@@ -12,7 +12,7 @@
 
 <script>
 
-
+const { VUE_APP_NEWS_API_KEY } = process.env;
 export default {
     name: 'SearchComponent',
     data() {
@@ -31,7 +31,8 @@ export default {
                 `q=${this.value}&` +
                 'from=2023-09-12&' +
                 'sortBy=publishedAt&' +
-                'apiKey=5e98e723c9374335a97bcb5599e40be9';
+                `apiKey=${VUE_APP_NEWS_API_KEY}&` + 
+                'pageSize=10';
 
             var req = new Request(url);
 
