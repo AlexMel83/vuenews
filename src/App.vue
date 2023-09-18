@@ -51,14 +51,14 @@ export default {
       this.hydrateData()
     },
     async hydrateData() {
-        const res = await getTopHeadlines(this.currentCategory, this.currentPage);
+      const res = await getTopHeadlines(this.currentCategory, this.currentPage);
       this.articles = res.data.articles;
     },
   },
 
-mounted() {
+  mounted() {
     this.currentCategory = 'general';
-   this.hydrateData()
+    this.hydrateData()
   },
 };
 </script>
