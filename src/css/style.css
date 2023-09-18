@@ -19,14 +19,15 @@
 }
 
 .card .badge {
-    width: 80px;
+    width: fit-content;
+    text-transform: capitalize;
     background-color: white !important;
     color: #198754;
     border: 1px solid #198754;
     border-radius: 20px;
     background: transparent;
     font-size: 12px;
-    
+    padding: 5px 10px 5px 10px;
 }
 .my-card{
     background-color:aliceblue!important;
@@ -44,6 +45,8 @@
 .card .card-body {
     height: auto;
     justify-content: space-between;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 @media (max-width:767px) {
     .header h1 {
