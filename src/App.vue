@@ -5,7 +5,7 @@
   <SearchField v-on:send="transferData" />
   <Carousel :articles="articles" />
   <CategoryTabs v-on:currentCategory="setCurrentCategory" />
-  <Gallery :articles="articles" v-on:currentPage='setCurrentPage' />
+  <Gallery :articles="articles" v-on:currentPage="setCurrentPage" />
   <Footer />
 </template>
 
@@ -32,7 +32,7 @@ export default {
       DATA: null,
       articles: [],
       currentCategory: '',
-      currentPage: 1
+      currentPage: 1,
     };
   },
   methods: {
@@ -40,15 +40,15 @@ export default {
       this.tables = value;
     },
     transferData(dat) {
-      this.articles = dat.articles.slice(0, 10);
+      this.articles = dat.articles;
     },
     setCurrentCategory(currentCategory) {
       this.currentCategory = currentCategory;
-      this.hydrateData()
+      this.hydrateData();
     },
     setCurrentPage(currentPage) {
       this.currentPage = currentPage;
-      this.hydrateData()
+      this.hydrateData();
     },
     async hydrateData() {
       const res = await getTopHeadlines(this.currentCategory, this.currentPage);
@@ -58,7 +58,7 @@ export default {
 
   mounted() {
     this.currentCategory = 'general';
-    this.hydrateData()
+    this.hydrateData();
   },
 };
 </script>

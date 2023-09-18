@@ -1,8 +1,14 @@
 <template>
   <div class="tab-gallery container">
-    <template v-for='tab in tabsArr' :key='tab.id'>
-      <button type="button" class="tab" :class='{ active: tab.isActive }'
-        @click="chooseCurrentCategory(tab.category)">{{ tab.category }}</button>
+    <template v-for="tab in tabsArr" :key="tab.id">
+      <button
+        type="button"
+        class="tab"
+        :class="{ active: tab.isActive }"
+        @click="chooseCurrentCategory(tab.category)"
+      >
+        {{ tab.category }}
+      </button>
     </template>
   </div>
 </template>
@@ -11,7 +17,6 @@
 export default {
   name: 'CategoryTabs',
   data() {
-
     return {
       category: 'general',
       tabsArr: [
@@ -22,25 +27,23 @@ export default {
         { id: '5', category: 'science', isActive: false },
         { id: '6', category: 'sports', isActive: false },
         { id: '7', category: 'technology', isActive: false },
-      ]
-    }
-
+      ],
+    };
   },
   emits: ['currentCategory'],
   methods: {
     chooseCurrentCategory(ref) {
-      const prevActiveTab = this.tabsArr.find((item) => item.isActive)
-      prevActiveTab ? prevActiveTab.isActive = false : null
-      const currentActiveTab = this.tabsArr.find((item) => item.category === ref)
-      currentActiveTab.isActive = true
-      this.category = currentActiveTab.category
-      this.$emit('currentCategory', this.category)
-
-
-    }
-  }
+      const prevActiveTab = this.tabsArr.find((item) => item.isActive);
+      prevActiveTab ? (prevActiveTab.isActive = false) : null;
+      const currentActiveTab = this.tabsArr.find(
+        (item) => item.category === ref
+      );
+      currentActiveTab.isActive = true;
+      this.category = currentActiveTab.category;
+      this.$emit('currentCategory', this.category);
+    },
+  },
 };
-
 </script>
 
 <style lang="scss" scoped>
@@ -60,7 +63,6 @@ export default {
   &.active {
     background-color: rgb(25, 135, 84);
     color: white;
-
   }
 }
 
@@ -69,4 +71,5 @@ export default {
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 20px;
-}</style>
+}
+</style>
