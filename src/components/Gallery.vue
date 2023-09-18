@@ -1,7 +1,7 @@
 <template>
     <div class="container gallery">
         <template v-for="(article,index) in articles" :key="article.publishedAt">
-            <News :article='article' v-if="article.urlToImage" :myid="index"/>
+            <News :article='article' v-if="article.urlToImage" :myid="index" :newsCategory="category" />
         </template>
     </div>
 
@@ -24,6 +24,7 @@ export default {
   },
   props: {
     articles: Array,
+    category: String
   },
   data() {
     return {

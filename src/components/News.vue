@@ -1,7 +1,7 @@
 <template>
     <div class="card mb-3 p-3 my-card">
         <div class="container m-0 p-0 d-flex justify-content-between align-items-center  mb-3">
-            <span class="badge bg-secondary">Latest</span>
+            <span class="badge bg-secondary">{{ newsCategory }}</span>
             <span class="time">{{ article.publishedAt.substring(0, 10) }} at {{ article.publishedAt.substring(11, 16)
             }}</span>
         </div>
@@ -32,7 +32,8 @@ export default {
         },
         myid: {
             type: Number
-        }
+        },
+        newsCategory:String
     },
     data: () => {
         return {
