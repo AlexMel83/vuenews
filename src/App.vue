@@ -5,7 +5,11 @@
   <SearchField v-on:send="transferData" />
   <Carousel :articles="articles" />
   <CategoryTabs v-on:currentCategory="setCurrentCategory" />
-  <Gallery :articles="articles" v-on:currentPage="setCurrentPage" :category="currentCategory"/>
+  <Gallery
+    :articles="articles"
+    v-on:currentPage="setCurrentPage"
+    :category="currentCategory"
+  />
   <Footer />
 </template>
 
@@ -44,6 +48,7 @@ export default {
     },
     setCurrentCategory(currentCategory) {
       this.currentCategory = currentCategory;
+      this.currentPage = 1;
       this.hydrateData();
     },
     setCurrentPage(currentPage) {
@@ -56,7 +61,7 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
     this.currentCategory = 'general';
     this.hydrateData();
   },
