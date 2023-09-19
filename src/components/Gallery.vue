@@ -1,9 +1,9 @@
 <template>
-    <div class="container gallery">
-        <template v-for="(article,index) in articles" :key="article.publishedAt">
-            <News :article='article' v-if="article.urlToImage" :myid="index" :newsCategory="category" />
-        </template>
-    </div>
+  <div class="container gallery">
+    <template v-for="(article, index) in articles" :key="article.publishedAt">
+      <News :article='article' v-if="article.title != '[Removed]'" :myid="index" :newsCategory="category" />
+    </template>
+  </div>
 
   <div class="button-set">
     <button @click="prevPage" :disabled="page === 1" class="btn btn-success">
